@@ -1,13 +1,15 @@
 package com.ooweat.common;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Util {
     //경로 관련 Utils
-    public static PathUtils pathUtils() {
-        return new PathUtils();
+    public static PathUtil pathUtil() {
+        return new PathUtil();
     }
-    public static class PathUtils {
+
+    public static class PathUtil {
         public String className() {
             return Thread.currentThread().getStackTrace()[2].getClassName();
         }
@@ -18,16 +20,17 @@ public class Util {
 
         public String classWithMethodName() {
             return
-                    Thread.currentThread().getStackTrace()[2].getClassName() + " & " +
-                            Thread.currentThread().getStackTrace()[2].getClassName() + " //  ";
+                    Thread.currentThread().getStackTrace()[2].getClassName() +"."+
+                            Thread.currentThread().getStackTrace()[2].getMethodName();
         }
     }
 
     //로그 관련 Utils
-    public static LogUtils logUtils() {
-        return new LogUtils();
+    public static LogUtil logUtil() {
+        return new LogUtil();
     }
-    public static class LogUtils {
+
+    public static class LogUtil {
         public String now() {
             Date date = new Date();
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -36,10 +39,11 @@ public class Util {
     }
 
     //날짜 & 시간 관련 Utils
-    public static DateUtils dateUtils() {
-        return new DateUtils();
+    public static DateUtil dateUtil() {
+        return new DateUtil();
     }
-    public static class DateUtils {
+
+    public static class DateUtil {
         Date date = new Date();
 
         public String sysdate() {
@@ -52,20 +56,36 @@ public class Util {
             return sdf.format(date);
         }
 
+        public String yyyyMMddWithHypen() {
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            return sdf.format(date);
+        }
+
+        public String yyyyMMddWithSlash() {
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+            return sdf.format(date);
+        }
+
         public String hhmmss() {
             SimpleDateFormat sdf = new SimpleDateFormat("HHmmss");
+            return sdf.format(date);
+        }
+
+        public String hhmmssWithColon() {
+            SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
             return sdf.format(date);
         }
     }
 
     //문자열 Util
-    public static StringUtils stringUtils(String param) {
-        return new StringUtils(param);
+    public static StringUtil stringUtil(String param) {
+        return new StringUtil(param);
     }
-    public static class StringUtils {
+
+    public static class StringUtil {
         private String value;
 
-        public StringUtils(String value) {
+        public StringUtil(String value) {
             this.value = value;
         }
 
