@@ -1,4 +1,4 @@
-package com.ooweat.entity;
+package com.ooweat.library.entity;
 
 import lombok.Data;
 

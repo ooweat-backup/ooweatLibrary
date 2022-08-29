@@ -1,4 +1,4 @@
-package com.ooweat.common;
+package com.ooweat.library.common;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

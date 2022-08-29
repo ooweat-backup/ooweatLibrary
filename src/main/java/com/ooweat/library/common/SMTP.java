@@ -1,6 +1,6 @@
-package com.ooweat.common;
+package com.ooweat.library.common;
 
-import com.ooweat.entity.SmtpBody;
+import com.ooweat.library.entity.SmtpBody;
 import javax.activation.CommandMap;
 import javax.activation.MailcapCommandMap;
 import javax.mail.*;
